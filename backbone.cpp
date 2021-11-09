@@ -17,21 +17,13 @@ using namespace std;
         $finish;
     end
     endmodule*/
-int main ()
+void backbone(map <string,array<int,2>> inputs,map <string,array<int,2>>  outputs, string module)
 {
     string testbench;
-    string module="aaaa";
-    map <string,array<int,2>> inputs;
-    inputs.insert(pair<string,array <int, 2>>("a",{2,0}));
-    inputs.insert(pair<string,array <int, 2>>("b",{2,0}));
-    map <string,array<int,2>>  outputs;
-    outputs.insert(pair<string,array <int, 2>>("c",{1,0}));
-    outputs.insert(pair<string,array <int, 2>>("d",{2,0}));
-    ofstream outfile("module_TB.sv");
   // used in the same order as described above:
     testbench.append("`timescale 1ns/1ns\n");                       
     testbench.append("module "+ module +"_TB.v;\n");   
-
+    ofstream outfile;
     //iterate through the map
     for (auto it = inputs.begin(); it != inputs.end(); ++it)
     {
@@ -60,7 +52,6 @@ int main ()
     testbench.append("$finish;\n");
     testbench.append("end\n");
     testbench.append("endmodule\n");
-
+    outfile.open ( module + "_TB.sv");
     outfile << testbench;
-  return 0;
 }
