@@ -1,9 +1,9 @@
 `timescale 1ns/1ns
-module AndGate_TB.v;
+module AndGate_TB.sv;
 reg [0:0] InA;
 reg [0:0] InB;
-wire [0:0] InA;
-AndGate DUT(InA,InB,InA);
+wire [0:0] OutY;
+AndGate DUT(InA,InB,OutY);
 initial begin 
 $dumpfile("design.vcd");
 $dumpvars(0, AndGate_TB);

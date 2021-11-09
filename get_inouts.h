@@ -151,7 +151,7 @@ else{
  } 
  for(int i=0; i<outputs.size(); i++){
     n[0]=atoi(insize[i].c_str());
-    outputS.insert(pair<string,array<int,2>>(inputs[i],{0,n[0]}));
+    outputS.insert(pair<string,array<int,2>>(outputs[i],{0,n[0]}));
  } 
 
  for(int i=0; i<inputs_bus.size(); i++){
