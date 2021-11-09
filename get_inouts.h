@@ -167,14 +167,14 @@ else{
 
 //////// inputS, outputS  are maps
  ///////////print outs and inputs
-cout<<"Inputs:"<<endl;
+/*cout<<"Inputs:"<<endl;
 for(auto it=inputS.begin(); it!=inputS.end();it++){
     cout<<it->first<<" "<<it->second[0]<<" "<<it->second[1]<<endl;
 }
 cout<<"Outputs:"<<endl;
 for(auto it=outputS.begin(); it!=outputS.end();it++){
     cout<<it->first<<" "<<it->second[0]<<" "<<it->second[1]<<endl;
-}
+}*/
   // Return inputs and outputs
   return {inputS, outputS};
 
