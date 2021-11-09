@@ -3,6 +3,7 @@
 #include <iostream>
 #include <map>
 #include <array>
+#include "stimuls.h"
 using namespace std;
     /*`timescale 1ns/1ns
     module module+"_TB.v";
@@ -17,6 +18,16 @@ using namespace std;
         $finish;
     end
     endmodule*/
+int get_n(map <string,array<int,2>> inputs){
+
+int n=0;
+    for (auto it = inputs.begin(); it != inputs.end(); ++it)
+    {
+        n+=it->second[1]-it->second[0]+1;
+    }
+    return n;
+}
+
 void backbone(map <string,array<int,2>> inputs,map <string,array<int,2>>  outputs, string module)
 {
     string testbench;
@@ -49,6 +60,8 @@ void backbone(map <string,array<int,2>> inputs,map <string,array<int,2>>  output
     testbench.append("$dumpfile(\"design.vcd\");\n");
     testbench.append("$dumpvars(0, "+ module +"_TB);\n");
     testbench.append("// addd stimulus\n");
+    int n=get_n(inputs);
+    testbench.append(stimulus(n,inputs));
     testbench.append("$finish;\n");
     testbench.append("end\n");
     testbench.append("endmodule\n");
