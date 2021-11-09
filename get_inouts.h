@@ -23,8 +23,9 @@ auto split(const std::string& str, const std::string& delim)
 	return vs;
 }
 ////////////////////////////
+// function to get the input and output ports of the module
 
-int main()
+array<map<string,array<int,2>>,2> get_inouts(string Path)
 {   //////////////////////////////variables///////////////////////////////
     map<string,array<int,2>> inputS,outputS;            ///////////input and output maps
      array<int,2 > n;
@@ -37,7 +38,7 @@ int main()
     std::vector<std::string> prueba,prueba1,contenedor,sizec,sizec_bus; 
 ////////////////////////////read design.sv file
     ifstream f;
-    f.open("design.sv", ios::in);
+    f.open(Path, ios::in);
     stringstream text;
     text << f.rdbuf();
     f.close();
@@ -174,6 +175,7 @@ cout<<"Outputs:"<<endl;
 for(auto it=outputS.begin(); it!=outputS.end();it++){
     cout<<it->first<<" "<<it->second[0]<<" "<<it->second[1]<<endl;
 }
+  // Return inputs and outputs
+  return {inputS, outputS};
 
-    return 0;
 }
