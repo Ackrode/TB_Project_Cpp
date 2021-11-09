@@ -33,7 +33,7 @@ void backbone(map <string,array<int,2>> inputs,map <string,array<int,2>>  output
     string testbench;
   // used in the same order as described above:
     testbench.append("`timescale 1ns/1ns\n");                       
-    testbench.append("module "+ module +"_TB.v;\n");   
+    testbench.append("module "+ module +"_TB.sv;\n");   
     ofstream outfile;
     //iterate through the map
     for (auto it = inputs.begin(); it != inputs.end(); ++it)
