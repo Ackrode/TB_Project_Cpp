@@ -22,7 +22,7 @@ void backbone(map <string,array<int,2>> inputs,map <string,array<int,2>>  output
     testbench.append("`timescale 1ns/1ns\n");                       
     testbench.append("module "+ module +"_TB.sv;\n");   
     ofstream outfile;
-    //iterate through the map
+    //iterate through the map and write the inputs with their bus size
     for (auto it = inputs.begin(); it != inputs.end(); ++it)
     {
         testbench.append("reg ["+to_string(it->second[0])+":"+to_string(it->second[1])+"] " +it->first+ ";\n");
@@ -32,6 +32,7 @@ void backbone(map <string,array<int,2>> inputs,map <string,array<int,2>>  output
         testbench.append("wire ["+to_string(it->second[0])+":"+to_string(it->second[1])+"] " +it->first+ ";\n");
     }
     testbench.append(module +" DUT(");
+    // Append the DUT unit with all the inputs and outputs
     for (auto it = inputs.begin(); it != inputs.end(); ++it)
     {
         testbench.append(it->first+",");
@@ -52,6 +53,7 @@ void backbone(map <string,array<int,2>> inputs,map <string,array<int,2>>  output
     testbench.append("$finish;\n");
     testbench.append("end\n");
     testbench.append("endmodule\n");
+    // Write files with the testbench
     outfile.open ( module + "_TB.sv");
     outfile << testbench;
 }
