@@ -1,6 +1,5 @@
 #include <fstream>
 #include <string>
-#include <iostream>
 #include <map>
 #include <array>
 #include "stimuls.h"

@@ -1,11 +1,8 @@
-#include <iomanip>
-#include <bitset>
 #include <string>
 #include <map>
 #include <array>
-#include <iostream>
 #include <cmath>
-#include <bitset>
+
 using namespace std;
 // convert number to binary whitout using bitset
 string to_binary(int num)
