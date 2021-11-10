@@ -1,9 +1,7 @@
-
 #include "backbone.h"
 #include "get_inouts.h"
 #include "module.h"
-//using namespace std;
-
+using namespace std;
 int main()
 {
     string file_name = "prueba.sv";
@@ -14,5 +12,4 @@ int main()
     inouts = get_inouts(file_name);
     module=GetModule(file_name);
     backbone(inouts[0],inouts[1],module);
-
 }
