@@ -4,22 +4,10 @@
 #include <array>
 #include "stimuls.h"
 using namespace std;
-    /*`timescale 1ns/1ns
-    module module+"_TB.v";
-    reg inputs;
-    wire outputs;
-    module DUT(inputs, outputs);
-    initial begin 
-        $dumpfile("design.vcd");
-        $dumpvars(0, module+"_TB);
-        // addd stimulus
-
-        $finish;
-    end
-    endmodule*/
+// get number of input bits
 int get_n(map <string,array<int,2>> inputs){
-
-int n=0;
+    int n=0;
+    //iterate trough all inputs
     for (auto it = inputs.begin(); it != inputs.end(); ++it)
     {
         n+=it->second[1]-it->second[0]+1;
